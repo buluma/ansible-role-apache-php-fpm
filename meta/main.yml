@@ -1,5 +1,8 @@
+---
 galaxy_info:
-  author: buluma
+  namespace: buluma
+  role_name: apache_php_fpm
+  author: Michael Buluma
   description: Apache 2.4+ PHP-FPM support for Linux
   company: ShadowNet
 
@@ -11,26 +14,27 @@ galaxy_info:
   min_ansible_version: 2.10
 
   platforms:
-  - name: EL
-    versions:
-    - 6
-    - 7
-  - name: Debian
-    versions:
-    - wheezy
-    - jessie
-    - stretch
-  - name: Ubuntu
-    versions:
-    - precise
-    - trusty
-    - xenial
+    - name: EL
+      versions:
+        - 6
+        - 7
+    - name: Debian
+      versions:
+        - wheezy
+        - jessie
+        - stretch
+    - name: Ubuntu
+      versions:
+        - precise
+        - trusty
+        - xenial
 
   galaxy_tags:
     - web
     - apache
     - php
     - cgi
-    - php-fpm
+    - php
+    - fpm
 
 dependencies: []
