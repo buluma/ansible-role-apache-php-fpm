@@ -2,5 +2,8 @@
 roles:
   - name: buluma.bootstrap
   - name: geerlingguy.apache
+  - name: geerlingguy.repo-remi
+  - name: geerlingguy.php-versions
+  - name: geerlingguy.php
 collections:
   - name: community.general
