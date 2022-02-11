@@ -4,3 +4,4 @@
 - src: geerlingguy.php-versions
 - src: geerlingguy.php
 - src: geerlingguy.apache-php-fpm
+- src: role_under_test

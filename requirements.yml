@@ -6,5 +6,6 @@ roles:
   - name: geerlingguy.php-versions
   - name: geerlingguy.php
   - name: geerlingguy.apache-php-fpm
+  - name: role_under_test
 collections:
   - name: community.general
