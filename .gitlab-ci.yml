@@ -22,10 +22,14 @@ molecule:
         tag: "stretch"
       - image: "debian"
         tag: "wheezy"
+      - image: "ubuntu"
+        tag: "trusty"
+      - image: "ubuntu"
+        tag: "xenial"
 
 role_testing:
   script:
-    - image=${image} tag=${tag} ansible-galaxy install buluma.ansible-role-apache-php-fpm
+    - image=${image} tag=${tag} ansible-galaxy install geerlingguy.apache-php-fpm
   rules:
     - if: $CI_COMMIT_REF_NAME == "testing"
   retry: 1
@@ -37,6 +41,10 @@ role_testing:
         tag: "stretch"
       - image: "debian"
         tag: "wheezy"
+      - image: "ubuntu"
+        tag: "trusty"
+      - image: "ubuntu"
+        tag: "xenial"
 
 galaxy:
   script:
