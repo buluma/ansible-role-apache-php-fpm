@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: localhost
 
   vars:
     php_enablerepo: "remi,remi-php56"
