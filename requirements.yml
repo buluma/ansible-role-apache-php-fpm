@@ -1,5 +1,6 @@
 ---
 roles:
   - name: buluma.bootstrap
+  - name: geerlingguy.apache
 collections:
   - name: community.general
