@@ -34,4 +34,5 @@ galaxy_info:
     - php
     - fpm
 
-dependencies: []
+dependencies:
+  - geerlingguy.apache
