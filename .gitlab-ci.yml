@@ -85,7 +85,7 @@ role_testing:
 
 galaxy:
   script:
-    - ansible-playbook -k -i test/test.yml -vvv
+    - ansible-playbook test/test.yml -vvv
 
 role_testing_live:
   script:
