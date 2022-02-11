@@ -59,7 +59,5 @@ role_testing:
         tag: "bionic"
 
 galaxy:
-  stage:
-    - testing
   script:
     - pwd && ls -la && ansible-playbook test/test.yml -vvv
