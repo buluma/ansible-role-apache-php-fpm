@@ -60,7 +60,7 @@ testing:
 
 role_testing:
   script:
-    - image=${image} tag=${tag} ansible-galaxy install buluma.atom
+    - image=${image} tag=${tag} ansible-galaxy install buluma.ansible-role-apache-php-fpm
   rules:
     - if: $CI_COMMIT_REF_NAME == "testing"
   retry: 1
@@ -89,7 +89,7 @@ galaxy:
 
 role_testing_live:
   script:
-    - image=${image} tag=${tag} ansible-galaxy install buluma.atom
+    - image=${image} tag=${tag} ansible-galaxy install buluma.ansible-role-apache-php-fpm
   retry: 1
   parallel:
     matrix:
