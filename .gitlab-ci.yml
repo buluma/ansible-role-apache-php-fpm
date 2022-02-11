@@ -62,4 +62,4 @@ galaxy:
   stage:
     - testing
   script:
-    - ansible-playbook test/test.yml -vvv
+    - pwd && ls -la && ansible-playbook test/test.yml -vvv
