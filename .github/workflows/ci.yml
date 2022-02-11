@@ -5,6 +5,7 @@ name: CI
   push:
     branches:
       - master
+      - testing
   schedule:
     - cron: "0 4 * * 0"
 
