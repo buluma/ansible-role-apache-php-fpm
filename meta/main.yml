@@ -1,0 +1,36 @@
+galaxy_info:
+  author: buluma
+  description: Apache 2.4+ PHP-FPM support for Linux
+  company: ShadowNet
+
+  # If the issue tracker for your role is not on github, uncomment the
+  # next line and provide a value
+  # issue_tracker_url: http://example.com/issue/tracker
+  license: "license (BSD, MIT)"
+
+  min_ansible_version: 2.10
+
+  platforms:
+  - name: EL
+    versions:
+    - 6
+    - 7
+  - name: Debian
+    versions:
+    - wheezy
+    - jessie
+    - stretch
+  - name: Ubuntu
+    versions:
+    - precise
+    - trusty
+    - xenial
+
+  galaxy_tags:
+    - web
+    - apache
+    - php
+    - cgi
+    - php-fpm
+
+dependencies: []
