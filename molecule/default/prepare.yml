@@ -6,3 +6,7 @@
 
   roles:
     - role: buluma.bootstrap
+    - role: geerlingguy.repo-remi
+    - role: geerlingguy.apache
+    - role: geerlingguy.php-versions
+    - role: geerlingguy.php
