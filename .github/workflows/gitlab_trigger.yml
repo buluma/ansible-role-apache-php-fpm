@@ -11,7 +11,7 @@ jobs:
       - name: Mirror + trigger CI
         uses: SvanBoxel/gitlab-mirror-and-ci-action@master
         with:
-          args: "buluma/ansible-role-apache_php_fpm"
+          args: "buluma/ansible-role-apache-php-fpm"
         env:
           GITLAB_HOSTNAME: "gitlab.com"
           GITLAB_USERNAME: "buluma"
