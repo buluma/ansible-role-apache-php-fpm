@@ -27,6 +27,25 @@ molecule:
       - image: "ubuntu"
         tag: "xenial"
 
+molecule_staging:
+  script:
+    - image=${image} tag=${tag} molecule test
+  rules:
+    - if: $CI_COMMIT_REF_NAME == "testing"
+  retry: 1
+  parallel:
+    matrix:
+      - image: "debian"
+        tag: "jessie"
+      - image: "debian"
+        tag: "stretch"
+      - image: "debian"
+        tag: "wheezy"
+      - image: "ubuntu"
+        tag: "trusty"
+      - image: "ubuntu"
+        tag: "xenial"
+
 role_testing:
   script:
     - image=${image} tag=${tag} ansible-galaxy install geerlingguy.apache-php-fpm
