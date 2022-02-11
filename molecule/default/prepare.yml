@@ -10,3 +10,4 @@
     - role: geerlingguy.apache
     - role: geerlingguy.php-versions
     - role: geerlingguy.php
+    - role: geerlingguy.apache-php-fpm
