@@ -18,4 +18,3 @@
     - role: geerlingguy.php-versions
     - role: geerlingguy.php
     - role: geerlingguy.apache-php-fpm
-    - role: role_under_test
