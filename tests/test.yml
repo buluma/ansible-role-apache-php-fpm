@@ -20,4 +20,3 @@
       when: ansible_os_family == 'RedHat'
     - role: geerlingguy.apache
     - role: geerlingguy.php
-    - role: role_under_test
