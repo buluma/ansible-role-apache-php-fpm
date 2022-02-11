@@ -40,4 +40,5 @@ role_testing:
 
 galaxy:
   script:
-    - pwd && cd test && ls -ltra && ansible-playbook test.yml -vvv
+    - pwd && ls -ltra
+    # - pwd && cd test && ls -ltra && ansible-playbook test.yml -vvv
