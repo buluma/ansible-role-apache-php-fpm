@@ -1,69 +1,117 @@
-# Ansible Role: Apache PHP-FPM
+# [apache-php-fpm](#apache-php-fpm)
 
-[![Build Status](https://travis-ci.org/buluma/ansible-role-apache-php-fpm.svg?branch=master)](https://travis-ci.org/buluma/ansible-role-apache-php-fpm)
+Apache 2.4+ PHP-FPM support for Linux
 
-An Ansible Role that configures Apache for PHP-FPM usage on RHEL/CentOS and Debian/Ubuntu.
+|GitHub|GitLab|Quality|Downloads|Version|
+|------|------|-------|---------|-------|
+|[![github](https://github.com/buluma/ansible-role-apache-php-fpm/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-apache-php-fpm/actions)|[![gitlab](https://gitlab.com/buluma/ansible-role-apache-php-fpm/badges/main/pipeline.svg)](https://gitlab.com/buluma/ansible-role-apache-php-fpm)|[![quality](https://img.shields.io/ansible/quality/)](https://galaxy.ansible.com/buluma/apache-php-fpm)|[![downloads](https://img.shields.io/ansible/role/d/)](https://galaxy.ansible.com/buluma/apache-php-fpm)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-apache-php-fpm.svg)](https://github.com/buluma/ansible-role-apache-php-fpm/releases/)|
 
-## Requirements
+## [Example Playbook](#example-playbook)
 
-This role is dependent upon `geerlingguy.apache`, and also requires you have PHP running with PHP-FPM somewhere on the server or elsewhere (I usually configure PHP with the `geerlingguy.php` role).
+This example is taken from `molecule/default/converge.yml` and is tested on each push, pull request and release.
+```yaml
+---
+- name: Converge
+  hosts: all
+  become: true
 
-When configuring your Apache virtual hosts, you can add the following line to any vhost definition to enable passthrough to PHP-FPM:
+  vars:
+    apache_listen_port_ssl: 443
+    apache_create_vhosts: true
+    apache_vhosts_filename: "vhosts.conf"
+    apache_vhosts:
+      - servername: "example.com"
+        documentroot: "/var/www/vhosts/example_com"
 
-    # If using a TCP port:
-    ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000/var/www/example"
-    
-    # If using a Unix socket:
-    ProxyPassMatch ^/(.*\.php(/.*)?)$ "unix:/var/run/php5-fpm.sock|fcgi://localhost/var/www/example"
+  roles:
+    - role: geerlingguy.repo-remi
+      when: ansible_os_family == 'RedHat'
+    - role: geerlingguy.apache
+    - role: geerlingguy.php-versions
+    - role: geerlingguy.php
+    - role: geerlingguy.apache-php-fpm
+```
 
-For a full usage example with the `geerlingguy.apache` role, see the Example Playbook later in this README.
+The machine needs to be prepared. In CI this is done using `molecule/default/prepare.yml`:
+```yaml
+---
+- name: Prepare
+  hosts: all
+  gather_facts: no
+  become: yes
 
-### RedHat 6 and 7
+  roles:
+    - role: buluma.bootstrap
+    - role: geerlingguy.repo-remi
+    - role: geerlingguy.apache
+    - role: geerlingguy.php-versions
+    - role: geerlingguy.php
+    - role: geerlingguy.apache-php-fpm
+```
 
-RedHat/CentOS 7 automatically installs and enables mod_proxy_fcgi by default.
 
-RedHat/CentOS 6 installs Apache 2.2, and is much harder to get configured with FastCGI, but here are two guides in case you need to support this use case:
+## [Role Variables](#role-variables)
 
-  - [Apache 2.2 + mod_fastcgi](http://stackoverflow.com/a/21409702/100134)
-  - [Apache 2.4 + mod_proxy_fcgi](http://unix.stackexchange.com/a/138903/16194)
+The default values for the variables are set in `defaults/main.yml`:
+```yaml
+---
+# defaults file for ansible-role-apache-php-fpm
+```
 
-### Ubuntu < 14.04
+## [Requirements](#requirements)
 
-This role will only work correctly if you have Apache 2.4.9+ installed; on older versions of Debian/Ubuntu Linux (e.g. 12.04), you can add `ppa:ondrej/apache2` prior to Apache installation to install Apache 2.4, for example:
+- pip packages listed in [requirements.txt](https://github.com/buluma/ansible-role-apache-php-fpm/blob/main/requirements.txt).
 
-    - name: Add repository for Apache 2.4 on Ubuntu 12.04.
-      apt_repository: repo='ppa:ondrej/apache2'
-      when: ansible_distribution_version == "12.04"
+## [Status of used roles](#status-of-requirements)
 
-## Role Variables
+The following roles are used to prepare a system. You can prepare your system in another way.
 
-None.
+| Requirement | GitHub | GitLab |
+|-------------|--------|--------|
+|[buluma.bootstrap](https://galaxy.ansible.com/buluma/bootstrap)|[![Build Status GitHub](https://github.com/buluma/ansible-role-bootstrap/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-bootstrap/actions)|[![Build Status GitLab ](https://gitlab.com/buluma/ansible-role-bootstrap/badges/main/pipeline.svg)](https://gitlab.com/buluma/ansible-role-bootstrap)|
+|[geerlingguy.apache](https://galaxy.ansible.com/buluma/geerlingguy.apache)|[![Build Status GitHub](https://github.com/buluma/geerlingguy.apache/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/geerlingguy.apache/actions)|[![Build Status GitLab ](https://gitlab.com/buluma/geerlingguy.apache/badges/main/pipeline.svg)](https://gitlab.com/buluma/geerlingguy.apache)|
+|[geerlingguy.repo-remi](https://galaxy.ansible.com/buluma/geerlingguy.repo-remi)|[![Build Status GitHub](https://github.com/buluma/geerlingguy.repo-remi/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/geerlingguy.repo-remi/actions)|[![Build Status GitLab ](https://gitlab.com/buluma/geerlingguy.repo-remi/badges/main/pipeline.svg)](https://gitlab.com/buluma/geerlingguy.repo-remi)|
+|[geerlingguy.php-versions](https://galaxy.ansible.com/buluma/geerlingguy.php-versions)|[![Build Status GitHub](https://github.com/buluma/geerlingguy.php-versions/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/geerlingguy.php-versions/actions)|[![Build Status GitLab ](https://gitlab.com/buluma/geerlingguy.php-versions/badges/main/pipeline.svg)](https://gitlab.com/buluma/geerlingguy.php-versions)|
+|[geerlingguy.php](https://galaxy.ansible.com/buluma/geerlingguy.php)|[![Build Status GitHub](https://github.com/buluma/geerlingguy.php/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/geerlingguy.php/actions)|[![Build Status GitLab ](https://gitlab.com/buluma/geerlingguy.php/badges/main/pipeline.svg)](https://gitlab.com/buluma/geerlingguy.php)|
+|[geerlingguy.apache-php-fpm](https://galaxy.ansible.com/buluma/geerlingguy.apache-php-fpm)|[![Build Status GitHub](https://github.com/buluma/geerlingguy.apache-php-fpm/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/geerlingguy.apache-php-fpm/actions)|[![Build Status GitLab ](https://gitlab.com/buluma/geerlingguy.apache-php-fpm/badges/main/pipeline.svg)](https://gitlab.com/buluma/geerlingguy.apache-php-fpm)|
 
-## Dependencies
+## [Dependencies](#dependencies)
 
-None.
+Most roles require some kind of preparation, this is done in `molecule/default/prepare.yml`. This role has a "hard" dependency on the following roles:
 
-## Example Playbook
+- geerlingguy.apache
+## [Context](#context)
 
-    - hosts: webservers
-    
-      vars:
-        php_enable_php_fpm: true
-        apache_vhosts:
-          - servername: "www.example.com"
-            documentroot: "/var/www/example"
-            extra_parameters: |
-                  ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000/var/www/example"
-    
-      roles:
-        - geerlingguy.apache
-        - geerlingguy.php
-        - geerlingguy.apache-php-fpm
+This role is a part of many compatible roles. Have a look at [the documentation of these roles](https://buluma.co.ke/) for further information.
 
-## License
+Here is an overview of related roles:
 
-MIT / BSD
+![dependencies](https://raw.githubusercontent.com/buluma/ansible-role-apache-php-fpm/png/requirements.png "Dependencies")
 
-## Author Information
+## [Compatibility](#compatibility)
 
-This role was created in 2016 by [Jeff Geerling](https://www.jeffgeerling.com/), author of [Ansible for DevOps](http://www.ansiblefordevops.com/).
+This role has been tested on these [container images](https://hub.docker.com/u/buluma):
+
+|container|tags|
+|---------|----|
+|el|6, 7|
+|debian|wheezy, jessie, stretch|
+|ubuntu|precise, trusty, xenial|
+
+The minimum version of Ansible required is 2.1, tests have been done to:
+
+- The previous version.
+- The current version.
+- The development version.
+
+
+
+If you find issues, please register them in [GitHub](https://github.com/buluma/ansible-role-apache-php-fpm/issues)
+
+## [License](#license)
+
+license (BSD, MIT)
+
+## [Author Information](#author-information)
+
+[Michael Buluma](https://buluma.github.io/)
