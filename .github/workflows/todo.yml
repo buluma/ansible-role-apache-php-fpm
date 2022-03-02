@@ -5,6 +5,10 @@
 
 name: "TODO 2 Issue"
 
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
+
 on:
   push:
 
