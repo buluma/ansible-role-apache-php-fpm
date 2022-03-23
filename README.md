@@ -1,69 +1,90 @@
-# Ansible Role: Apache PHP-FPM
+# [apache-php-fpm](#apache-php-fpm)
 
-[![Build Status](https://travis-ci.org/buluma/ansible-role-apache-php-fpm.svg?branch=master)](https://travis-ci.org/buluma/ansible-role-apache-php-fpm)
+Apache 2.4+ PHP-FPM support for Linux
 
-An Ansible Role that configures Apache for PHP-FPM usage on RHEL/CentOS and Debian/Ubuntu.
+|GitHub|GitLab|Quality|Downloads|Version|Issues|Pull Requests|
+|------|------|-------|---------|-------|------|-------------|
+|[![github](https://github.com/buluma/ansible-role-apache-php-fpm/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-apache-php-fpm/actions)|[![gitlab](https://gitlab.com/buluma/ansible-role-apache-php-fpm/badges/master/pipeline.svg)](https://gitlab.com/buluma/ansible-role-apache-php-fpm)|[![quality](https://img.shields.io/ansible/quality/)](https://galaxy.ansible.com/buluma/apache-php-fpm)|[![downloads](https://img.shields.io/ansible/role/d/)](https://galaxy.ansible.com/buluma/apache-php-fpm)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-apache-php-fpm.svg)](https://github.com/buluma/ansible-role-apache-php-fpm/releases/)|[![Issues](https://img.shields.io/github/issues/buluma/ansible-role-apache-php-fpm.svg)](https://github.com/buluma/ansible-role-apache-php-fpm/issues/)|[![PullRequests](https://img.shields.io/github/issues-pr/buluma/ansible-role-apache-php-fpm.svg)](https://github.com/buluma/ansible-role-apache-php-fpm/pulls/)|
 
-## Requirements
+## [Example Playbook](#example-playbook)
 
-This role is dependent upon `geerlingguy.apache`, and also requires you have PHP running with PHP-FPM somewhere on the server or elsewhere (I usually configure PHP with the `geerlingguy.php` role).
+This example is taken from `molecule/default/converge.yml` and is tested on each push, pull request and release.
+```yaml
+---
+- name: Converge
+  hosts: all
+  become: yes
+  gather_facts: yes
 
-When configuring your Apache virtual hosts, you can add the following line to any vhost definition to enable passthrough to PHP-FPM:
+  roles:
+    - role: buluma.apache-php-fpm
+```
 
-    # If using a TCP port:
-    ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000/var/www/example"
-    
-    # If using a Unix socket:
-    ProxyPassMatch ^/(.*\.php(/.*)?)$ "unix:/var/run/php5-fpm.sock|fcgi://localhost/var/www/example"
+The machine needs to be prepared. In CI this is done using `molecule/default/prepare.yml`:
+```yaml
+---
+- name: Prepare
+  hosts: all
+  gather_facts: no
+  become: yes
 
-For a full usage example with the `geerlingguy.apache` role, see the Example Playbook later in this README.
+  roles:
+    - role: buluma.bootstrap
+```
 
-### RedHat 6 and 7
 
-RedHat/CentOS 7 automatically installs and enables mod_proxy_fcgi by default.
+## [Role Variables](#role-variables)
 
-RedHat/CentOS 6 installs Apache 2.2, and is much harder to get configured with FastCGI, but here are two guides in case you need to support this use case:
+The default values for the variables are set in `defaults/main.yml`:
+```yaml
+---
+# defaults file for ansible-role-apache-php-fpm
+```
 
-  - [Apache 2.2 + mod_fastcgi](http://stackoverflow.com/a/21409702/100134)
-  - [Apache 2.4 + mod_proxy_fcgi](http://unix.stackexchange.com/a/138903/16194)
+## [Requirements](#requirements)
 
-### Ubuntu < 14.04
+- pip packages listed in [requirements.txt](https://github.com/buluma/ansible-role-apache-php-fpm/blob/main/requirements.txt).
 
-This role will only work correctly if you have Apache 2.4.9+ installed; on older versions of Debian/Ubuntu Linux (e.g. 12.04), you can add `ppa:ondrej/apache2` prior to Apache installation to install Apache 2.4, for example:
+## [Status of used roles](#status-of-requirements)
 
-    - name: Add repository for Apache 2.4 on Ubuntu 12.04.
-      apt_repository: repo='ppa:ondrej/apache2'
-      when: ansible_distribution_version == "12.04"
+The following roles are used to prepare a system. You can prepare your system in another way.
 
-## Role Variables
+| Requirement | GitHub | GitLab |
+|-------------|--------|--------|
+|[buluma.bootstrap](https://galaxy.ansible.com/buluma/bootstrap)|[![Build Status GitHub](https://github.com/buluma/ansible-role-bootstrap/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-bootstrap/actions)|[![Build Status GitLab ](https://gitlab.com/buluma/ansible-role-bootstrap/badges/master/pipeline.svg)](https://gitlab.com/buluma/ansible-role-bootstrap)|
 
-None.
+## [Context](#context)
 
-## Dependencies
+This role is a part of many compatible roles. Have a look at [the documentation of these roles](https://buluma.co.ke/) for further information.
 
-None.
+Here is an overview of related roles:
 
-## Example Playbook
+![dependencies](https://raw.githubusercontent.com/buluma/ansible-role-apache-php-fpm/png/requirements.png "Dependencies")
 
-    - hosts: webservers
-    
-      vars:
-        php_enable_php_fpm: true
-        apache_vhosts:
-          - servername: "www.example.com"
-            documentroot: "/var/www/example"
-            extra_parameters: |
-                  ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000/var/www/example"
-    
-      roles:
-        - geerlingguy.apache
-        - geerlingguy.php
-        - geerlingguy.apache-php-fpm
+## [Compatibility](#compatibility)
 
-## License
+This role has been tested on these [container images](https://hub.docker.com/u/buluma):
 
-MIT / BSD
+|container|tags|
+|---------|----|
+|el|all|
+|debian|all|
+|ubuntu|all|
 
-## Author Information
+The minimum version of Ansible required is 2.1, tests have been done to:
 
-This role was created in 2016 by [Jeff Geerling](https://www.jeffgeerling.com/), author of [Ansible for DevOps](http://www.ansiblefordevops.com/).
+- The previous version.
+- The current version.
+- The development version.
+
+
+
+If you find issues, please register them in [GitHub](https://github.com/buluma/ansible-role-apache-php-fpm/issues)
+
+## [License](#license)
+
+license (BSD, MIT)
+
+## [Author Information](#author-information)
+
+[Michael Buluma](https://buluma.github.io/)
