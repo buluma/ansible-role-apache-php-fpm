@@ -6,7 +6,7 @@ galaxy_info:
   description: Apache 2.4+ PHP-FPM support for Linux
   company: ShadowNet
 
-  license: "license (BSD, MIT)"
+  license: "license (Apache-2.0)"
 
   min_ansible_version: 2.10
 
