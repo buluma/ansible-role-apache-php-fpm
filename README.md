@@ -4,7 +4,7 @@ Apache 2.4+ PHP-FPM support for Linux
 
 |GitHub|GitLab|Quality|Downloads|Version|Issues|Pull Requests|
 |------|------|-------|---------|-------|------|-------------|
-|[![github](https://github.com/buluma/ansible-role-apache-php-fpm/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-apache-php-fpm/actions)|[![gitlab](https://gitlab.com/buluma/ansible-role-apache-php-fpm/badges/master/pipeline.svg)](https://gitlab.com/buluma/ansible-role-apache-php-fpm)|[![quality](https://img.shields.io/ansible/quality/)](https://galaxy.ansible.com/buluma/apache-php-fpm)|[![downloads](https://img.shields.io/ansible/role/d/)](https://galaxy.ansible.com/buluma/apache-php-fpm)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-apache-php-fpm.svg)](https://github.com/buluma/ansible-role-apache-php-fpm/releases/)|[![Issues](https://img.shields.io/github/issues/buluma/ansible-role-apache-php-fpm.svg)](https://github.com/buluma/ansible-role-apache-php-fpm/issues/)|[![PullRequests](https://img.shields.io/github/issues-pr/buluma/ansible-role-apache-php-fpm.svg)](https://github.com/buluma/ansible-role-apache-php-fpm/pulls/)|
+|[![github](https://github.com/buluma/ansible-role-apache-php-fpm/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-apache-php-fpm/actions)|[![gitlab](https://gitlab.com/buluma/ansible-role-apache-php-fpm/badges/master/pipeline.svg)](https://gitlab.com/buluma/ansible-role-apache-php-fpm)|[![quality](https://img.shields.io/ansible/quality/)](https://galaxy.ansible.com/buluma/apache-php-fpm)|[![downloads](https://img.shields.io/ansible/role/d/)](https://galaxy.ansible.com/buluma/apache-php-fpm)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-apache-php-fpm.svg)](https://github.com/buluma/ansible-role-apache-php-fpm/releases/)|[![Issues](https://img.shields.io/github/issues/buluma/ansible-role-apache-php-fpm.svg)](https://github.com/buluma/ansible-role-apache-php-fpm/issues/)|[![PullRequests](https://img.shields.io/github/issues-pr-closed-raw/buluma/ansible-role-apache-php-fpm.svg)](https://github.com/buluma/ansible-role-apache-php-fpm/pulls/)|
 
 ## [Example Playbook](#example-playbook)
 
@@ -83,7 +83,7 @@ If you find issues, please register them in [GitHub](https://github.com/buluma/a
 
 ## [License](#license)
 
-license (BSD, MIT)
+license (Apache-2.0)
 
 ## [Author Information](#author-information)
 
