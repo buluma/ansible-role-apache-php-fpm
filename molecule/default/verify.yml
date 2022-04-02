@@ -6,7 +6,7 @@
 
   tasks:
     - name: Enable mod_proxy_fcgi.
-      file:
+      ansible.builtin.file:
         src: "{{ apache_server_root }}/mods-available/{{ item }}"
         dest: "{{ apache_server_root }}/mods-enabled/{{ item }}"
         state: link
