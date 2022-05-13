@@ -6,3 +6,9 @@
 
   roles:
     - role: buluma.bootstrap
+    - role: geerlingguy.repo_remi
+      when: ansible_os_family == 'RedHat'
+    - role: geerlingguy.apache
+    - role: geerlingguy.php-versions
+    - role: geerlingguy.php
+    - role: geerlingguy.apache-php-fpm

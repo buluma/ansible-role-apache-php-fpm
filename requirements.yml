@@ -1,5 +1,11 @@
 ---
 roles:
   - name: buluma.bootstrap
+  - name: geerlingguy.repo_remi
+    when: ansible_os_family == 'RedHat'
+  - name: geerlingguy.apache
+  - name: geerlingguy.php-versions
+  - name: geerlingguy.php
+  - name: geerlingguy.apache-php-fpm
 collections:
   - name: community.general
