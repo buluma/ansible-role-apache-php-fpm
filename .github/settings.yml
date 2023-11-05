@@ -5,4 +5,4 @@
 repository:
   description: Apache 2.4+ PHP-FPM support for Linux
   homepage: https://buluma.github.io/
-  topics: web, apache, php, cgi, php, fpm, ansible, molecule, tox, playbook, hacktoberfest
+  topics: web, apache, php, cgi, php, fpm, ansible, molecule, tox, playbook
