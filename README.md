@@ -2,9 +2,9 @@
 
 Apache 2.4+ PHP-FPM support for Linux
 
-|GitHub|GitLab|Downloads|Version|Issues|Pull Requests|
-|------|------|-------|-------|------|-------------|
-|[![github](https://github.com/buluma/ansible-role-apache-php-fpm/actions/workflows/molecule.yml/badge.svg)](https://github.com/buluma/ansible-role-apache-php-fpm/actions/workflows/molecule.yml)|[![gitlab](https://gitlab.com/shadowwalker/ansible-role-apache-php-fpm/badges/master/pipeline.svg)](https://gitlab.com/shadowwalker/ansible-role-apache-php-fpm)|[![downloads](https://img.shields.io/ansible/role/d/)](https://galaxy.ansible.com/buluma/apache-php-fpm)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-apache-php-fpm.svg)](https://github.com/buluma/ansible-role-apache-php-fpm/releases/)|[![Issues](https://img.shields.io/github/issues/buluma/ansible-role-apache-php-fpm.svg)](https://github.com/buluma/ansible-role-apache-php-fpm/issues/)|[![PullRequests](https://img.shields.io/github/issues-pr-closed-raw/buluma/ansible-role-apache-php-fpm.svg)](https://github.com/buluma/ansible-role-apache-php-fpm/pulls/)|
+|GitHub|Version|Issues|Pull Requests|
+|------|-------|------|-------------|
+|[![github](https://github.com/buluma/ansible-role-apache-php-fpm/actions/workflows/molecule.yml/badge.svg)](https://github.com/buluma/ansible-role-apache-php-fpm/actions/workflows/molecule.yml)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-apache-php-fpm.svg)](https://github.com/buluma/ansible-role-apache-php-fpm/releases/)|[![Issues](https://img.shields.io/github/issues/buluma/ansible-role-apache-php-fpm.svg)](https://github.com/buluma/ansible-role-apache-php-fpm/issues/)|[![PullRequests](https://img.shields.io/github/issues-pr-closed-raw/buluma/ansible-role-apache-php-fpm.svg)](https://github.com/buluma/ansible-role-apache-php-fpm/pulls/)|
 
 ## [Example Playbook](#example-playbook)
 
@@ -67,14 +67,14 @@ The default values for the variables are set in [`defaults/main.yml`](https://gi
 
 The following roles are used to prepare a system. You can prepare your system in another way.
 
-| Requirement | GitHub | GitLab |
+| Requirement | GitHub | Version |
 |-------------|--------|--------|
-|[buluma.bootstrap](https://galaxy.ansible.com/buluma/bootstrap)|[![Build Status GitHub](https://github.com/buluma/ansible-role-bootstrap/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-bootstrap/actions)|[![Build Status GitLab](https://gitlab.com/shadowwalker/ansible-role-bootstrap/badges/master/pipeline.svg)](https://gitlab.com/shadowwalker/ansible-role-bootstrap)|
-|[geerlingguy.repo_remi](https://galaxy.ansible.com/buluma/geerlingguy.repo_remi)|[![Build Status GitHub](https://github.com/buluma/geerlingguy.repo_remi/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/geerlingguy.repo_remi/actions)|[![Build Status GitLab](https://gitlab.com/shadowwalker/geerlingguy.repo_remi/badges/master/pipeline.svg)](https://gitlab.com/shadowwalker/geerlingguy.repo_remi)|
-|[geerlingguy.apache](https://galaxy.ansible.com/buluma/geerlingguy.apache)|[![Build Status GitHub](https://github.com/buluma/geerlingguy.apache/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/geerlingguy.apache/actions)|[![Build Status GitLab](https://gitlab.com/shadowwalker/geerlingguy.apache/badges/master/pipeline.svg)](https://gitlab.com/shadowwalker/geerlingguy.apache)|
-|[geerlingguy.php-versions](https://galaxy.ansible.com/buluma/geerlingguy.php-versions)|[![Build Status GitHub](https://github.com/buluma/geerlingguy.php-versions/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/geerlingguy.php-versions/actions)|[![Build Status GitLab](https://gitlab.com/shadowwalker/geerlingguy.php-versions/badges/master/pipeline.svg)](https://gitlab.com/shadowwalker/geerlingguy.php-versions)|
-|[geerlingguy.php](https://galaxy.ansible.com/buluma/geerlingguy.php)|[![Build Status GitHub](https://github.com/buluma/geerlingguy.php/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/geerlingguy.php/actions)|[![Build Status GitLab](https://gitlab.com/shadowwalker/geerlingguy.php/badges/master/pipeline.svg)](https://gitlab.com/shadowwalker/geerlingguy.php)|
-|[geerlingguy.apache-php-fpm](https://galaxy.ansible.com/buluma/geerlingguy.apache-php-fpm)|[![Build Status GitHub](https://github.com/buluma/geerlingguy.apache-php-fpm/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/geerlingguy.apache-php-fpm/actions)|[![Build Status GitLab](https://gitlab.com/shadowwalker/geerlingguy.apache-php-fpm/badges/master/pipeline.svg)](https://gitlab.com/shadowwalker/geerlingguy.apache-php-fpm)|
+|[buluma.bootstrap](https://galaxy.ansible.com/buluma/bootstrap)|[![Build Status GitHub](https://github.com/buluma/ansible-role-bootstrap/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-bootstrap/actions)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-bootstrap.svg)](https://github.com/shadowwalker/ansible-role-bootstrap)|
+|[geerlingguy.repo_remi](https://galaxy.ansible.com/buluma/geerlingguy.repo_remi)|[![Build Status GitHub](https://github.com/buluma/geerlingguy.repo_remi/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/geerlingguy.repo_remi/actions)|[![Version](https://img.shields.io/github/release/buluma/geerlingguy.repo_remi.svg)](https://github.com/shadowwalker/geerlingguy.repo_remi)|
+|[geerlingguy.apache](https://galaxy.ansible.com/buluma/geerlingguy.apache)|[![Build Status GitHub](https://github.com/buluma/geerlingguy.apache/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/geerlingguy.apache/actions)|[![Version](https://img.shields.io/github/release/buluma/geerlingguy.apache.svg)](https://github.com/shadowwalker/geerlingguy.apache)|
+|[geerlingguy.php-versions](https://galaxy.ansible.com/buluma/geerlingguy.php-versions)|[![Build Status GitHub](https://github.com/buluma/geerlingguy.php-versions/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/geerlingguy.php-versions/actions)|[![Version](https://img.shields.io/github/release/buluma/geerlingguy.php-versions.svg)](https://github.com/shadowwalker/geerlingguy.php-versions)|
+|[geerlingguy.php](https://galaxy.ansible.com/buluma/geerlingguy.php)|[![Build Status GitHub](https://github.com/buluma/geerlingguy.php/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/geerlingguy.php/actions)|[![Version](https://img.shields.io/github/release/buluma/geerlingguy.php.svg)](https://github.com/shadowwalker/geerlingguy.php)|
+|[geerlingguy.apache-php-fpm](https://galaxy.ansible.com/buluma/geerlingguy.apache-php-fpm)|[![Build Status GitHub](https://github.com/buluma/geerlingguy.apache-php-fpm/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/geerlingguy.apache-php-fpm/actions)|[![Version](https://img.shields.io/github/release/buluma/geerlingguy.apache-php-fpm.svg)](https://github.com/shadowwalker/geerlingguy.apache-php-fpm)|
 
 ## [Context](#context)
 
@@ -114,7 +114,6 @@ If you find issues, please register them in [GitHub](https://github.com/buluma/a
 
 [Michael Buluma](https://buluma.github.io/)
 
-Please consider [sponsoring me](https://github.com/sponsors/buluma).
 
 ### [Special Thanks](#special-thanks)
 
